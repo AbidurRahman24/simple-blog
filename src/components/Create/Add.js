@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UseContext/UseContext';
+import 'react-toastify/dist/ReactToastify.css';
 import './Create.css'
 // const getLocalItems = ()=>{
 //     let list = localStorage.getItem('lists')
@@ -14,12 +16,14 @@ import './Create.css'
 //     }
 //   }
 const Create = () => {
+
     const [id, setId] = useState("");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [name, setName] = useState("");
     const [users, setUsers] = useContext(UserContext);
     // add data to localStorage
+    
     useEffect(()=>{
         localStorage.setItem('lists', JSON.stringify(users))
     },[users])
@@ -44,8 +48,9 @@ const Create = () => {
         
         e.preventDefault();
       setUsers([...users, {id:id, title:title, description:description, name:name}])
-      alert("created")
+    //   alert("created")
      }
+     const notify = () => toast.success("Wow Post Added!");
     return (
         <div className="create">
             <Form onSubmit={addUser}>
@@ -89,8 +94,8 @@ const Create = () => {
                         placeholder="Author Name"
                     />
                 </Form.Group>
-                <Button className="action_btn" variant="primary" type="submit">
-                    Create User
+                <Button className="action_btn" variant="primary" type="submit" >
+                    Add Blog
                 </Button>
                 <Link to="/">
                     <Button className="action_btn" variant="info">
@@ -98,6 +103,7 @@ const Create = () => {
                     </Button>
                 </Link>
             </Form>
+            <ToastContainer />
         </div>
     );
 };

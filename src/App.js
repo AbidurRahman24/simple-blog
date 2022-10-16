@@ -36,7 +36,7 @@ function App() {
             {/* <Route path="edit/:id" element={<Edit />} /> */}
             <Route path="edit/:id" element={<Update />} />
             {/* <Route path="read/:id" element={<Read />} /> */}
-            <Route path="read/:id" element={<Read2 />} />
+            <Route path="details/:id" element={<Read2 />} />
             {/* <Route path="create" element={<Create />} /> */}
             <Route path="addBlog" element={<Add />} />
             {/* <Route path="contact" element={ <Contact/> } /> */}

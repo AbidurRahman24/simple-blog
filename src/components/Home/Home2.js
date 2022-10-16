@@ -35,9 +35,9 @@ const Home = () => {
               <td>{user.title}</td>
               <td>{user.description}</td>
               <td>
-                <Link to={"/read/"+user.id}>
+                <Link to={"/details/"+user.id}>
                   <Button className="action__btn" variant="success">
-                    Read
+                    Details
                   </Button>
                 </Link>
                 <Link to={"/edit/"+user.id}>
