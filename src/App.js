@@ -22,6 +22,7 @@ import CarouselFade from './components/Header/Header';
 import First from './components/FirstSection/First';
 import Visit from './components/Visit/Visit';
 import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const changeTheNumber = useSelector(state => state.changeTheNumber);
@@ -48,6 +49,7 @@ function App() {
             {/* <Route path="contact" element={ <Contact/> } /> */}
           </Routes>
           <UpcomingEvents />
+          <Footer />
         </BrowserRouter>
         {/* <div className='text-center'>
         <Button onClick={() => dispatch(decNumber())} variant="success">-</Button>
