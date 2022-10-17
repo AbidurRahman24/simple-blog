@@ -1,62 +1,49 @@
 import React, { useContext } from 'react';
-import {Button, Table} from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { UserContext } from '../UseContext/UseContext';
+import BlogCard from './Card';
 import './Home.css'
 
 
 const Home = () => {
   const [users, setUsers] = useContext(UserContext)
-  
-  console.log(users);
-    return (
-        <div>
-          
-            <Link to="/create">
-        <Button className="create__btn" variant="primary">
-          Create User
-        </Button>
-      </Link>
-            <Table striped bordered hover>
-      <thead>
-        <tr>
-        <th>ID</th>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.title}</td>
-              <td>{user.description}</td>
-              <td>
-                <Link to={"/details/"+user.id}>
-                  <Button className="action__btn" variant="success">
-                    Details
-                  </Button>
-                </Link>
-                <Link to={"/edit/"+user.id}>
-                <Button className="action__btn" variant="info">
-                  Edit
-                </Button>
-                </Link>
-                <Link to={"/delete/"+user.id}>
-                <Button className="action__btn" variant="danger">
-                  Delete
-                </Button>
-                </Link>
-              </td>
-            </tr>
-          ))}
-      </tbody>
-    </Table>
+  const ComponetBtn = styled.button`
+  background: ${props => props.primary ? "#54AA29" : "white"};
+  color: ${props => props.primary ? "white" : "palevioletred"};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.50em 1em;
+  border: none;
+  border-radius: 3px;
+  width:70%
+  `
+  // console.log(users);
+  return (
+    <div className='container'>
+      <div className='row'>
+        <div className="home-text" style={{padding: '50px 0px', textAlign:'center'}}>
+          <h1 style={{color:'#409843', fontFamily: '"Merriweather", Helvetica, Arial, sans-serif'}}>Fusce rutrum volutpat faucibus</h1>
+          <p>Onceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus 
+            condimentum sit amet a augue. Sed non neque elit. 
+            Sed ut imperdiet nisi. Proin condimentum fermentum nunc. 
+            Etiam pharetra, erat sed fermentum feugiat, velit mauris 
+            egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
         </div>
-    );
+        {users.slice(0, 6).map((user) => (
+          <div className='col-md-4 d-flex align-items-stretch'>
+            <BlogCard user={user}></BlogCard>
+          </div>
+        ))}
+        <div style={{textAlign:'center', padding:'15px'}}>
+        <p >Fusce ac porttitor elit. In sed feugiat turpis, dictum semper ante. <br /> Phasellus luctus, sapien sit amet ullamcorper ultrices, tortor odio hendrerit ante, ut amet.</p>
+        <ComponetBtn primary>Read more blog</ComponetBtn>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

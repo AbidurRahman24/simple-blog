@@ -1,4 +1,3 @@
-import './App.css';
 import {
   BrowserRouter,
   Routes,
@@ -19,6 +18,10 @@ import { decNumber, insNumber } from '../src/Redux/Action/Index'
 import { Button} from 'react-bootstrap';
 import Form from './Form/Form'
 import Navbarheader from './components/Shared/Nav';
+import CarouselFade from './components/Header/Header';
+import First from './components/FirstSection/First';
+import Visit from './components/Visit/Visit';
+import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 
 function App() {
   const changeTheNumber = useSelector(state => state.changeTheNumber);
@@ -28,6 +31,9 @@ function App() {
       <div className="App">
         <BrowserRouter>
             <Navbarheader />
+            <CarouselFade />
+            <First />
+            <Visit />
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Home2 />} />
@@ -41,12 +47,13 @@ function App() {
             <Route path="addBlog" element={<Add />} />
             {/* <Route path="contact" element={ <Contact/> } /> */}
           </Routes>
+          <UpcomingEvents />
         </BrowserRouter>
-        <div className='text-center'>
+        {/* <div className='text-center'>
         <Button onClick={() => dispatch(decNumber())} variant="success">-</Button>
         <input type='text' value={changeTheNumber} />
-        <Button onClick={() => dispatch(insNumber())} variant="success">+</Button>
-      </div>
+        <Button onClick={() => dispatch(insNumber())} variant="success">+</Button> */}
+      {/* </div> */}
       </div>
      
     </UserProvider>
