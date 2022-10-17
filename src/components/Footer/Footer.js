@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Footer = () => {
@@ -16,6 +17,12 @@ const Footer = () => {
 
     return (
         <Wrapper>
+            <Row>
+        <Col xs={{ order: 'last' }}>First, but last</Col>
+        <Col xs>Second, but unordered</Col>
+        <Col xs={{ order: 'first' }}>Third, but first</Col>
+        <Col xs={{ order: 'first' }}>Third, but first</Col>
+      </Row>
                 <Title>
                     © {(new Date().getFullYear())} Travel Blog and Event by Abidur Rahman | All Rights Reserved | Powered by React
                 </Title>
