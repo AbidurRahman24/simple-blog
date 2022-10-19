@@ -1,6 +1,7 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import ContactInfo from './ContactInfo';
 
 const Contact = () => {
     const Wripper = styled.section`
@@ -8,12 +9,12 @@ const Contact = () => {
     padding-bottom: 50px
     `
     const Button = styled.button`
-    background: ${props => props.primary ? "palevioletred" : "white"};
+    background: ${props => props.primary ? "#54AA29" : "white"};
     color: ${props => props.primary ? "white" : "palevioletred"};
     font-size: 1em;
-    margin: 1em;
+    margin: 1em 0em;
     padding: 0.25em 1em;
-    border: 2px solid palevioletred;
+    border: 2px solid #54AA29;
     border-radius: 3px;
     `;
     return (
@@ -28,11 +29,31 @@ const Contact = () => {
                     </Col>
                     <Col sm={8}>
                         <div>
-                            <input />
-                            <Button primary>Primary</Button>
+                            <Form>
+                                <Row>
+                                    <Col>
+                                        <Form.Control placeholder="First name" />
+                                    </Col>
+                                    <Col>
+                                        <Form.Control placeholder="Last name" />
+                                    </Col>
+                                </Row>
+                                <Form.Group className="mb-3 mt-3" >
+                                    <Form.Control placeholder="Subject" />
+                                </Form.Group>
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Leave a comment here"
+                                    style={{ height: '100px' }}
+                                />
+                                <Button primary>Send a message</Button>
+                            </Form>
+
                         </div>
                     </Col>
                 </Row>
+                {/* 2nd */}
+                <ContactInfo />
             </Container>
         </Wripper>
     );
