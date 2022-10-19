@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaRegClock } from 'react-icons/fa';
-import { UserContext } from '../UseContext/UseContext';
+import { UserContext } from '../../../UseContext/UseContext';
 import imges from './county-blogpost1.jpg'
 const UpcomingEvents = () => {
     const [users, setUsers] = useContext(UserContext)
@@ -30,7 +30,7 @@ const UpcomingEvents = () => {
                                     <h3 >{user.title}</h3>
                                     <div style={{ display: 'flex' }}>
                                         <p><FaRegClock /></p>
-                                        <p style={{ padding: '0px 15px' }}>{(new Date().getFullYear())}</p>
+                                        <p style={{ padding: '0px 15px' }}>{new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate()}</p>
                                     </div>
                                 </div>
                             </div>

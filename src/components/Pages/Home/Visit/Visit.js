@@ -2,8 +2,8 @@ import { Button } from 'react-bootstrap';
 import classes from './Visit.modules.css'
 import { FaRegClock, FaMapMarkerAlt } from "react-icons/fa";
 import { useContext } from 'react';
-import { UserContext } from '../UseContext/UseContext';
 import image from './county-blogpost8.jpg'
+import { UserContext } from '../../../UseContext/UseContext';
 
 const Visit = () => {
     const [users, setUsers] = useContext(UserContext)
@@ -24,7 +24,7 @@ const Visit = () => {
                                 <h3 >{user.title}</h3>
                                 <div style={{display:'flex'}}>
                                 <p><FaRegClock /></p>
-                                <p style={{ padding:'0px 15px'}}>{(new Date().getFullYear())}</p>
+                                <p style={{ padding:'0px 15px'}}>{(new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate())}</p>
                                 </div>
                                 </div>
                             </div>
